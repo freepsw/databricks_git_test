@@ -30,7 +30,7 @@ xgb_classifier = SparkXGBClassifier(
     prediction_col="prediction",
     max_depth=3,
     eta=0.1,
-    num_round=100
+    num_round=50
 )
 
 # Create a pipeline
@@ -44,6 +44,10 @@ predictions = model.transform(df)
 
 # Show predictions
 display(predictions.select("label", "features", "prediction"))
+
+# COMMAND ----------
+
+print(model.stages)
 
 # COMMAND ----------
 
